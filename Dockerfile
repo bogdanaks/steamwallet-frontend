@@ -7,8 +7,3 @@ COPY package-lock.json /app/package-lock.json
 RUN npm ci
 COPY . /app
 RUN npm run build
-
-FROM nginx:latest
-
-RUN mkdir -p /steamwallet/front-static
-COPY --from=builder /app/build /steamwallet/front-static
